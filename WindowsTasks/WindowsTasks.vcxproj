@@ -151,7 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TaskContainer.cpp" />
     <ClCompile Include="WindowsTasks.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TaskContainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
