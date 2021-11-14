@@ -15,7 +15,7 @@ std::wstring GetDescripriongOfErrorByNumber(DWORD errorNumber)
 		NULL,
 		errorNumber,
 		MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US),
-		static_cast<LPWSTR>(&description[0]),
+		&description[0],
 		static_cast<DWORD>(description.size()),
 		NULL
 	);
@@ -25,11 +25,14 @@ std::wstring GetDescripriongOfErrorByNumber(DWORD errorNumber)
 		return std::wstring();
 	}
 
-	description.shrink_to_fit();
 	return description;
 }
 
 int main()
 {
-	std::wcout << L"ERROR_SUCCESS: " << GetDescripriongOfErrorByNumber(ERROR_SUCCESS) << std::endl;
+	std::wcout << L"ERROR_SUCCESS: " << GetDescripriongOfErrorByNumber(ERROR_SUCCESS) << std::endl;									// 0 (0x0)
+
+	std::wcout << L"ERROR_SHARING_BUFFER_EXCEEDED: " << GetDescripriongOfErrorByNumber(ERROR_SHARING_BUFFER_EXCEEDED) << std::endl;	// 36 (0x24)
+
+	std::wcout << L"DNS_ERROR_BAD_KEYMASTER: " << GetDescripriongOfErrorByNumber(DNS_ERROR_BAD_KEYMASTER) << std::endl;				// 9122 (0x23A2)
 }
